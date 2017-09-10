@@ -20,6 +20,15 @@ class ListHolidayControllers extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('list_holiday_view');
+		$this->load->model('ListHolidayModel');
+		$datas = $this->ListHolidayModel->get_all();
+		foreach ($datas as $row){
+				$data[] = array(
+				'holiday_date' => $row['HOLIDAY_DATE'],
+				'holiday_detail' => $row['HOLIDAY_DETAIL']
+			 );	
+		}
+		$dataShow['holidays'] = $data;
+		$this->load->view('list_holiday_view',$dataShow);
 	}
 }
