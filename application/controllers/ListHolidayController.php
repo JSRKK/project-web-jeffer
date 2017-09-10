@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ListHolidayControllers extends CI_Controller {
+class ListHolidayController extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,14 +21,33 @@ class ListHolidayControllers extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('ListHolidayModel');
-		$datas = $this->ListHolidayModel->get_all();
+		$years = $this->ListHolidayModel->get_year();
+		foreach ($years as $row){
+			$year[] = array(
+			'holiday_year' => $row['year'],			
+		 	);	
+		}
+		$temp = '2017';
+		$datas = $this->ListHolidayModel->get_data($temp);
 		foreach ($datas as $row){
 				$data[] = array(
 				'holiday_date' => $row['HOLIDAY_DATE'],
 				'holiday_detail' => $row['HOLIDAY_DETAIL']
 			 );	
 		}
+		$dataShow['years'] = $year;
 		$dataShow['holidays'] = $data;
 		$this->load->view('list_holiday_view',$dataShow);
+	}
+
+	public function get_holiday(){
+		$this->load->model('ListHolidayModel');
+		$datas = $this->ListHolidayModel->get_data($temp);
+		foreach ($datas as $row){
+				$data[] = array(
+				'holiday_date' => $row['HOLIDAY_DATE'],
+				'holiday_detail' => $row['HOLIDAY_DETAIL']
+			 );	
+		}
 	}
 }

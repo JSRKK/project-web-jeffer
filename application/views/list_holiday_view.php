@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Holiday</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/vendors/bootstrap/dist/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -268,24 +268,37 @@
         <!-- /top navigation -->
         
         <!-- page content -->
-        <div class="right_col" role="main">      
-          <div class="">
+        <div class="right_col" role="main"> 
+          <div class="row">
             <div class="col-md-2 col-sm-2 col-xs-6"></div>
               <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>ตารางวันหยุดประจำปี 2560</h2>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-8 col-xs-8">
+                        <h2>วันหยุดประจำปี: </h2>
+                      </div>
+                      <div class="col-md-2 col-sm-4 col-xs-4">
+                        <select id="heard" class="form-control" required>
+                          <?php if($years != null){
+                            foreach($years as $key => $row){
+                              echo '<option value="'.$row['holiday_year'].'"><a href="<?php echo base_url('ListHolidayController/get_holiday?holiday_year='.$row['holiday_year']); ?>">'.$row['holiday_year'].'</a></option>';       
+                              ?>                     
+                          <?php }} ?>                         
+                        </select>
+                      </div>
+                    </div>
                     <div class="clearfix"></div>
                   </div>
-
+                  
                   <div class="x_content">
                     
                     <div class="table-responsive">
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">                           
-                            <th class="column-title" style="width: 20%">วันที่ </th>
-                            <th class="column-title" style="width: 80%">หมายเหตุ </th>                                       
+                            <th class="column-title" style="width: 40%">วันที่ </th>
+                            <th class="column-title" style="width: 60%">หมายเหตุ </th>                                       
                           </tr>
                         </thead>
 
@@ -300,7 +313,7 @@
                         </tbody>
                       </table>
                     </div>
-							
+                                
 						
                   </div>
                 </div>
@@ -310,29 +323,22 @@
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
       </div>
     </div>
 
+
     <!-- jQuery -->
-    <link href="<?php echo base_url('assets/vendors/jquery/dist/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/jquery/dist/jquery.min.js')?>"></script>
     <!-- Bootstrap -->
-    <link href="<?php echo base_url('assets/vendors/bootstrap/dist/js/bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/bootstrap/dist/js/bootstrap.min.js')?>"></script>
     <!-- FastClick -->
-    <link href="<?php echo base_url('assets/vendors/fastclick/lib/fastclick.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/fastclick/lib/fastclick.js')?>"></script>
     <!-- NProgress -->
-    <link href="<?php echo base_url('assets/vendors/nprogress/nprogress.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/nprogress/nprogress.js')?>"></script>
     <!-- iCheck -->
-    <link href="<?php echo base_url('assets/vendors/iCheck/icheck.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/iCheck/icheck.min.js')?>"></script>
 
     <!-- Custom Theme Scripts -->
-    <link href="<?php echo base_url('assets/build/js/custom.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/build/js/custom.min.js')?>"></script>
   </body>
 </html>
