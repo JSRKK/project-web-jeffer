@@ -274,20 +274,11 @@
               <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-8 col-xs-8">
-                        <h2>วันหยุดประจำปี: </h2>
-                      </div>
-                      <div class="col-md-2 col-sm-4 col-xs-4">
-                        <select id="heard" class="form-control" required>
-                          <?php if($years != null){
-                            foreach($years as $key => $row){
-                              echo '<option value="'.$row['holiday_year'].'"><a href="<?php echo base_url('ListHolidayController/get_holiday?holiday_year='.$row['holiday_year']); ?>">'.$row['holiday_year'].'</a></option>';       
-                              ?>                     
-                          <?php }} ?>                         
-                        </select>
-                      </div>
-                    </div>
+                      <h2>วันหยุดประจำปี:
+                        <?php if($years != null){
+                          echo "<a>" .$years[0]['holiday_year']. "</a>";
+                        } ?>
+                      </h2>
                     <div class="clearfix"></div>
                   </div>
                   

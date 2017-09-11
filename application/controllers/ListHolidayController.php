@@ -27,8 +27,7 @@ class ListHolidayController extends CI_Controller {
 			'holiday_year' => $row['year'],			
 		 	);	
 		}
-		$temp = '2017';
-		$datas = $this->ListHolidayModel->get_data($temp);
+		$datas = $this->ListHolidayModel->get_data($year[0]['holiday_year']);
 		foreach ($datas as $row){
 				$data[] = array(
 				'holiday_date' => $row['HOLIDAY_DATE'],
@@ -38,16 +37,5 @@ class ListHolidayController extends CI_Controller {
 		$dataShow['years'] = $year;
 		$dataShow['holidays'] = $data;
 		$this->load->view('list_holiday_view',$dataShow);
-	}
-
-	public function get_holiday(){
-		$this->load->model('ListHolidayModel');
-		$datas = $this->ListHolidayModel->get_data($temp);
-		foreach ($datas as $row){
-				$data[] = array(
-				'holiday_date' => $row['HOLIDAY_DATE'],
-				'holiday_detail' => $row['HOLIDAY_DETAIL']
-			 );	
-		}
 	}
 }
