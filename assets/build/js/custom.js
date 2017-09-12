@@ -2472,7 +2472,7 @@ if (typeof NProgress != 'undefined') {
 					calendar.fullCalendar('unselect');
 				  },
 				  editable: true,
-				  events: $('#event').data('titles')
+				  events: $('#event').data('events')
 				  
 				});
 				
