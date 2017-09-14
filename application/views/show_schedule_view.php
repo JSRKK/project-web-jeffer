@@ -50,7 +50,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-calendar"></i>  ตารางทำงาน</h2>                  
+                    <h2><i class="fa fa-calendar"></i>  ปฏิทินงาน</h2>                  
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
