@@ -6,12 +6,17 @@ class SalaryController extends CI_Controller {
 
 	public function index()
 	{		
+		$dataShow = $this->get_data_employee();
+		$this->load->view('salary_view', $dataShow);
+	}
+
+	public function get_data_employee(){
 		$this->load->model('SalaryModel');
-		$hours = $this->SalaryModel->get_hour();
+		$hours = $this->SalaryModel->get_hour($this->input->get('salary_date'));
 		$datas = $this->SalaryModel->get_data();
 		$temp = 0;
 		foreach ($datas as $row){
-			if($row['EMP_TYPE'] == "F"){
+			if($row['EMP_TYPE'] === "F"){
 				$temp = $row['EMP_SALARY'];
 			}
 			else{
@@ -25,7 +30,7 @@ class SalaryController extends CI_Controller {
 			'rank' => $row['RANK_NAME']						
 		 	);	
 		}
-		$datas = $this->SalaryModel->get_salary();
+		$datas = $this->SalaryModel->get_salary($this->input->get('salary_date'));
 		foreach ($datas as $row){
 			$salary[] = array(
 			'date' => date("d/m/Y", strtotime($row['date'])),			
@@ -44,7 +49,9 @@ class SalaryController extends CI_Controller {
 		}
 		$dataShow['hour'] = $hours;
 		$dataShow['employee'] = $data;
-		$dataShow['salary'] = $salary;		
-		$this->load->view('salary_view', $dataShow);
+		$dataShow['salary'] = $salary;
+		
+		return $dataShow;
 	}
+
 }

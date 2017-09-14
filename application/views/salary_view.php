@@ -101,8 +101,8 @@
                           <thead>
                             <tr>
                               <th style="width:50">รายการได้</th>
-                              <th style="width:10"></th>
-                              <th style="width:40">จำนวนเงิน</th>
+                              <th style="width:20"></th>
+                              <th style="width:30">จำนวนเงิน</th>
                             </tr>
                           </thead>
                           <tbody>
