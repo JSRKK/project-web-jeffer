@@ -1,0 +1,13 @@
+.thead-color{
+    background:rgba(52, 73, 94, 0.94);
+    color:white;
+  }
+
+  .required  {
+    border-left: 5px solid #42A948; /* green */
+    border-color: #42A948;
+  }
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+    border-color: #a94442;
+  }
