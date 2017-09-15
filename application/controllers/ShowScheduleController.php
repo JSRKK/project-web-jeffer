@@ -7,10 +7,15 @@ class ShowScheduleController extends CI_Controller {
 	public function index()
 	{	
 		$this->load->model('ShowScheduleModel');
-		$datas = $this->ShowScheduleModel->get_data();
+		$session_data =  $this->session->userdata('loged_in');
+		$datas = $this->ShowScheduleModel->get_data($session_data['userId']);
 		foreach ($datas as $row){
+			$startDate = date("H:i", strtotime($row['SCHEDULE_START']));
+			$endDate = date("H:i", strtotime($row['SCHEDULE_END']));
+			$hour = (strtotime($row['SCHEDULE_END']) - strtotime($row['SCHEDULE_START']))/3600;
+
 			$data[] = array(
-			'title' => $row['SCHEDULE_START']." - ".$row['SCHEDULE_END'],			
+			'title' => $startDate." - ".$endDate." (".$hour." ชั่วโมง)",			
 			'start' => $row['SCHEDULE_DATE']." ".$row['SCHEDULE_START'],			
 			'end' => $row['SCHEDULE_DATE']." ".$row['SCHEDULE_END'],			
 		 	);	

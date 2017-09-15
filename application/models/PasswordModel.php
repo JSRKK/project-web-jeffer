@@ -24,7 +24,9 @@ class PasswordModel extends CI_Model {
                         'EMP_PASSWORD' => $password
                 );
                 $this->db->where('EMP_ID',$id);
-                $this->db->update('employee',$data);                
+                $this->db->update('employee',$data);   
+
+                $this->session->userdata('loged_in')['password'] = $password;       
         } 
 
 }

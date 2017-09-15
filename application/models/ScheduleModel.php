@@ -7,21 +7,21 @@ class ScheduleModel extends CI_Model {
                 parent::__construct();
         }
 
-        public function insert_data(){
+        public function insert_data($userId){
             $data = array(
                 'SCHEDULE_DATE'=> date("Y-m-d", strtotime($this->input->post('time_start'))), //แปลงรูปแบบวันที่
                 'SCHEDULE_START'=> date("H:i:s", strtotime($this->input->post('time_start'))), 
                 'SCHEDULE_END'=> date("H:i:s", strtotime($this->input->post('time_end'))), 
-                'EMP_ID'=> 'JF0003'               
+                'EMP_ID'=> $userId               
             );        
             $this->db->insert('schedule',$data);       
         }  
         
-        public function check_duplicate(){
+        public function check_duplicate($userId){
             $date = date("Y-m-d", strtotime($this->input->post('time_start')));
             $this->db->select('SCHEDULE_DATE');
             $this->db->from('schedule');
-            $where = "SCHEDULE_DATE='$date' AND EMP_ID ='JF0003'";
+            $where = "SCHEDULE_DATE='$date' AND EMP_ID ='$userId'";
             $this->db->where($where);
             $query = $this->db->get();
         

@@ -10,7 +10,7 @@ class ListSalaryController extends CI_Controller {
         $datas = $this->ListSalaryModel->get_data();
         foreach ($datas as $row){
 			$data[] = array(
-			'salary_date' => date("d/m/Y", strtotime($row['SALARY_DATE']))				
+			'salary_date' => date("d-m-Y", strtotime($row['SALARY_DATE']))				
 		 	);	
         }
         $dataShow['date'] = $data;

@@ -7,10 +7,10 @@ class ShowScheduleModel extends CI_Model {
                 parent::__construct();
         }
 
-        public function get_data(){
+        public function get_data($userId){
                 $this->db->select('SCHEDULE_DATE, SCHEDULE_START, SCHEDULE_END');
                 $this->db->from('schedule');
-                $this->db->where('EMP_ID=','JF0003');
+                $this->db->where('EMP_ID', $userId);
                 $query = $this->db->get();               
                 return $query->result_array(); 
         }     

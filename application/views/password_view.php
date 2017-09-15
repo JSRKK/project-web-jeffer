@@ -18,6 +18,9 @@
     
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css')?>">
+    
   </head>
 
   <body class="nav-md">
@@ -35,30 +38,23 @@
               <div class="col-md-8 col-sm-8 col-xs-12"><br><br>
                   <?php if($this->session->flashdata('success')): ?>    
                       <div class="alert alert-success">
-                          <p><strong><center> เปลี่ยนรหัสผ่านเรียบร้อย! </center></strong></p>
+                          <p><strong><center> <?php echo $this->session->flashdata('success'); ?> </center></strong></p>
                       </div>
                   <?php endif; ?>
                   <?php if($this->session->flashdata('idNull')): ?>    
                       <div class="alert alert-danger">
-                          <p><strong><center> รหัสผู้ใช้งานไม่ถูกต้อง! </center></strong><p>
+                          <p><strong><center> <?php echo $this->session->flashdata('idNull'); ?> </center></strong><p>
                       </div>
                   <?php endif; ?>
                   <?php if($this->session->flashdata('passwordNull')): ?>    
                       <div class="alert alert-danger">
-                          <p><strong><center> รหัสผ่านไม่ถูกต้อง! </center></strong><p>
+                          <p><strong><center> <?php echo $this->session->flashdata('passwordNull'); ?> </center></strong><p>
                       </div>
                   <?php endif; ?>
                   <?php if($this->session->flashdata('duplicate')): ?>  
                       <div class="container">  
                           <div class="alert alert-warning">
-                              <p><strong><center> รหัสผ่านซ้ำ! </center></strong><p>
-                          </div>
-                      </div>
-                  <?php endif; ?>
-                  <?php if($this->session->flashdata('error')): ?>  
-                      <div class="container">  
-                          <div class="alert alert-danger">
-                              <p><strong><center> ไม่พบรหัสผู้ใช้งาน! </center></strong><p>
+                              <p><strong><center> <?php echo $this->session->flashdata('duplicate'); ?> </center></strong><p>
                           </div>
                       </div>
                   <?php endif; ?>
@@ -80,19 +76,19 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">รหัสผู้ใช้งาน<span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length="5"  name="username" required="true" type="text">
+                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length="5"  name="username" required="required" type="text">
                       </div>
                     </div>      
                     <div class="item form-group">
                       <label for="password" class="control-label col-md-3">รหัสผ่านปัจจุบัน</label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="password" type="password" name="olePassword" data-validate-length="5,8" class="form-control col-md-7 col-xs-12" required="required">
+                        <input id="password" type="password" name="oldPassword" data-validate-length="5" class="form-control col-md-7 col-xs-12" required="required">
                       </div>
                     </div>
                     <div class="item form-group">
                       <label for="password" class="control-label col-md-3">รหัสผ่านใหม่</label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="password" type="password" name="newPassword" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                        <input id="password" type="password" name="newPassword" data-validate-length="5" class="form-control col-md-7 col-xs-12" required="required">
                       </div>
                     </div>
                     <div class="item form-group">

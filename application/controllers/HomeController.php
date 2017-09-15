@@ -6,6 +6,7 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{		
+		$session_data = $this->session->userdata('loged_in');		
 		$this->load->view('home_view');
 	}
 }

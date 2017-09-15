@@ -12,8 +12,11 @@ class SalaryController extends CI_Controller {
 
 	public function get_data_employee(){
 		$this->load->model('SalaryModel');
-		$hours = $this->SalaryModel->get_hour($this->input->get('salary_date'));
-		$datas = $this->SalaryModel->get_data();
+		$session_data =  $this->session->userdata('loged_in');
+		$date = $this->input->get('salary_date');
+
+		$hours = $this->SalaryModel->get_hour($session_data['userId'], $date);
+		$datas = $this->SalaryModel->get_data($session_data['userId']);
 		$temp = 0;
 		foreach ($datas as $row){
 			if($row['EMP_TYPE'] === "F"){
@@ -30,7 +33,7 @@ class SalaryController extends CI_Controller {
 			'rank' => $row['RANK_NAME']						
 		 	);	
 		}
-		$datas = $this->SalaryModel->get_salary($this->input->get('salary_date'));
+		$datas = $this->SalaryModel->get_salary($session_data['userId'], $date);
 		foreach ($datas as $row){
 			$salary[] = array(
 			'date' => date("d/m/Y", strtotime($row['date'])),			
