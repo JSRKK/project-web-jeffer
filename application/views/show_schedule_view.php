@@ -21,7 +21,7 @@
 
     <!-- Custom styling plus plugins -->
     <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
-
+  
     <!-- schedule from database to jquery -->
     <div id ="event" data-events='<?php echo json_encode($events); ?>' data-hidden="true" ></div>
     
@@ -47,7 +47,7 @@
             <div class="clearfix"></div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-calendar"></i>  ปฏิทินงาน</h2>                  

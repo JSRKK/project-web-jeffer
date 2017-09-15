@@ -3,7 +3,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-bank"></i><span> Jeffer Restaurant</span></a>
+              <a href="<?php echo base_url('index.php/HomeController')?>" class="site_title"><i class="fa fa-bank"></i><span> Jeffer Restaurant</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -11,11 +11,15 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url('images/image_profile.png'); ?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>Welcome</span>
+                <h2>
+                  <?php $session_data = $this->session->userdata('loged_in');
+                          echo $session_data['firstName']." ".$session_data['lastName'] ;
+                   ?>
+                </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -27,7 +31,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home </span></a>
+                  <li><a href="<?php echo base_url('index.php/HomeController')?>"><i class="fa fa-home"></i> หน้าหลัก </span></a>
                   </li>
                   <li><a href="<?php echo base_url('index.php/ScheduleController')?>"><i class="fa fa-edit"></i> ลงตารางเวลางาน </span></a>
                   </li>
@@ -57,17 +61,17 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                  <img src="<?php echo base_url('images/image_profile.png'); ?>" alt="..." >
+                    <?php $session_data = $this->session->userdata('loged_in');
+                            echo $session_data['firstName']." ".$session_data['lastName'] ;
+                    ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile </a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span>Settings</span>
-                      </a>
+                    <li><a href="<?php echo base_url('index.php/PasswordController')?>"><i class="fa fa-key pull-right"></i> Change Password </a>
                     </li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/LoginController')?>"><i class="fa fa-sign-out pull-right"></i> Log Out </a>
+                    </li>
                   </ul>
                 </li>
 
