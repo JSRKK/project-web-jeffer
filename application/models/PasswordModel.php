@@ -24,10 +24,20 @@ class PasswordModel extends CI_Model {
                         'EMP_PASSWORD' => $password
                 );
                 $this->db->where('EMP_ID',$id);
-                $this->db->update('employee',$data);   
-
-                $this->session->userdata('loged_in')['password'] = $password;       
+                $this->db->update('employee',$data);      
         } 
+
+        public function update_session(){
+                $password = $this->input->post('newPassword');
+                $session_data =  $this->session->userdata('loged_in');
+                $sess_array = array(
+                        'userId' => $this->input->post('username'),
+                        'password' => $password,
+                        'firstName' => $session_data['firstName'],
+                        'lastName' =>  $session_data['lastName']
+                      );
+                $this->session->set_userdata('loged_in', $sess_array);     
+        }
 
 }
 
