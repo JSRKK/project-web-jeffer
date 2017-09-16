@@ -5,9 +5,10 @@ class ListSalaryController extends CI_Controller {
 
 
 	public function index()
-	{		
+	{	
+		$session_data =  $this->session->userdata('loged_in');	
         $this->load->model('ListSalaryModel');
-        $datas = $this->ListSalaryModel->get_data();
+        $datas = $this->ListSalaryModel->get_data($session_data['userId']);
         foreach ($datas as $row){
 			$data[] = array(
 			'salary_date' => date("d-m-Y", strtotime($row['SALARY_DATE']))				

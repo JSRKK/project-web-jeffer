@@ -7,10 +7,10 @@ class ListSalaryModel extends CI_Model {
                 parent::__construct();
         }
 
-        public function get_data(){
+        public function get_data($userId){
             $this->db->select('SALARY_DATE');
             $this->db->from('salary');
-            $this->db->where('EMP_ID','JF0003');
+            $this->db->where('EMP_ID', $userId);
             $query = $this->db->get();               
             return $query->result_array(); 
         }     
