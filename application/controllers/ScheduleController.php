@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ScheduleController extends CI_Controller {
 
+	public $data = array();
+
 	public function index()
 	{		
 		$this->load->view('schedule_view');
@@ -22,20 +24,44 @@ class ScheduleController extends CI_Controller {
 			if($check === true){
 				$this->ScheduleModel->insert_data($session_data['userId']);
 				$this->session->set_flashdata('success','success');
+				$data[] = array(
+					'title' => 'Success!',
+					'text' => 'ลงตารางเวลางานเรียบร้อย!',
+					'type' => 'success',
+					'styling' => 'bootstrap3'
+				);	
 			}
 			else{
 				$this->session->set_flashdata('error','error');
+				$data[] = array(
+					'title' => 'Error!',
+					'text' => 'ไม่สามารถลงตารางเวลางานซ้ำได้!',
+					'type' => 'error',
+					'styling' => 'bootstrap3'
+				);
 			}
 		}
 		else{
 			if($date < $dateMin){
 				$this->session->set_flashdata('lessDate','lessDate');
+				$data[] = array(
+					'title' => 'Error!',
+					'text' => 'ไม่สามารถลงตารางเวลางานย้อนหลังได้!',
+					'type' => 'error',
+					'styling' => 'bootstrap3'
+				);
 			}
 			else{
 				$this->session->set_flashdata('overDate','overDay');
+				$data[] = array(
+					'title' => 'Error!',
+					'text' => 'ไม่สามารถลงตารางเวลางานเกินกำหนดได้!',
+					'type' => 'error',
+					'styling' => 'bootstrap3'
+				);
 			}
 		}
-
-		redirect('ScheduleController');				
+		$dataShow['data'] = $data;
+		$this->load->view('schedule_view', $dataShow);			
 	}
 }

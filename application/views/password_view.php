@@ -15,12 +15,18 @@
     <link href="<?php echo base_url('assets/vendors/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?php echo base_url('assets/vendors/nprogress/nprogress.css')?>" rel="stylesheet">
-    
+    <!-- bootstrap-progressbar -->
+    <link href="<?php echo base_url('assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')?>" rel="stylesheet">
+
+    <!-- PNotify -->
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.buttons.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.nonblock.css')?>" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css')?>">
-    
   </head>
 
   <body class="nav-md">
@@ -37,26 +43,16 @@
               <div class="col-md-2 col-sm-2 "></div>
               <div class="col-md-8 col-sm-8 col-xs-12"><br><br>
                   <?php if($this->session->flashdata('success')): ?>    
-                      <div class="alert alert-success">
-                          <p><strong><center> <?php echo $this->session->flashdata('success'); ?> </center></strong></p>
-                      </div>
+                    <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div> 
                   <?php endif; ?>
-                  <?php if($this->session->flashdata('idNull')): ?>    
-                      <div class="alert alert-danger">
-                          <p><strong><center> <?php echo $this->session->flashdata('idNull'); ?> </center></strong><p>
-                      </div>
+                  <?php if($this->session->flashdata('idNull')): ?>   
+                    <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div> 
                   <?php endif; ?>
                   <?php if($this->session->flashdata('passwordNull')): ?>    
-                      <div class="alert alert-danger">
-                          <p><strong><center> <?php echo $this->session->flashdata('passwordNull'); ?> </center></strong><p>
-                      </div>
+                    <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                   <?php endif; ?>
                   <?php if($this->session->flashdata('duplicate')): ?>  
-                      <div class="container">  
-                          <div class="alert alert-warning">
-                              <p><strong><center> <?php echo $this->session->flashdata('duplicate'); ?> </center></strong><p>
-                          </div>
-                      </div>
+                    <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                   <?php endif; ?>
               </div>
           </div>
@@ -132,11 +128,17 @@
     <script src="<?php echo base_url('assets/vendors/fastclick/lib/fastclick.js')?>"></script>
     <!-- NProgress -->
     <script src="<?php echo base_url('assets/vendors/nprogress/nprogress.js')?>"></script>
+
     <!-- validator -->
     <script src="<?php echo base_url('assets/vendors/validator/validator.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')?>"></script>                         
+    <!-- PNotify -->
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.buttons.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.nonblock.js')?>"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url('assets/build/js/custom.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/build/js/custom.js')?>"></script>
 	
   </body>
 </html>

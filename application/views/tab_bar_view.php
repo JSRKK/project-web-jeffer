@@ -63,7 +63,7 @@
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <img src="<?php echo base_url('images/image_profile.png'); ?>" alt="..." >
                     <?php $session_data = $this->session->userdata('loged_in');
-                            echo $session_data['firstName']." ".$session_data['lastName'] ;
+                            echo $session_data['firstName']." ".$session_data['lastName'];
                     ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>

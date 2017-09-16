@@ -28,6 +28,11 @@
 
     <link href="<?php echo base_url('assets/vendors/cropper/dist/cropper.min.css')?>" rel="stylesheet">
 
+    <!-- PNotify -->
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.buttons.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.nonblock.css')?>" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
     <!-- Style CSS -->
@@ -49,26 +54,16 @@
                      <div class="col-md-3 col-sm-3 col-xs-12"></div>
                     <div class="col-md-6 col-sm-6 col-xs-12"><br><br>
                         <?php if($this->session->flashdata('success')): ?>    
-                            <div class="alert alert-success">
-                                <p><strong><center> ลงตารางเวลางานเรียบร้อย! </center></strong></p>
-                            </div>
+                            <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                         <?php endif; ?>
                         <?php if($this->session->flashdata('error')): ?>    
-                            <div class="alert alert-danger">
-                                <p><strong><center> คุณไม่สามารถลงตารางเวลางานซ้ำได้! </center></strong><p>
-                            </div>
+                            <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                         <?php endif; ?>
                         <?php if($this->session->flashdata('overDate')): ?>    
-                            <div class="alert alert-warning">
-                                <p><strong><center> คุณไม่สามารถลงตารางเวลางานเกินกว่ากำหนดได้! </center></strong><p>
-                            </div>
+                            <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                         <?php endif; ?>
                         <?php if($this->session->flashdata('lessDate')): ?>  
-                            <div class="container">  
-                                <div class="alert alert-warning">
-                                    <p><strong><center> คุณไม่สามารถลงตารางเวลางานย้อนหลังได้! </center></strong><p>
-                                </div>
-                            </div>
+                            <div id ="alert3" data-notify='<?php echo json_encode($data[0]); ?>' data-hidden="true" ></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -187,9 +182,13 @@
     <!-- Cropper -->
     <script src="<?php echo base_url('assets/vendors/cropper/dist/cropper.min.js')?>"></script>
     <script src="<?php echo base_url('assets/vendors/validator/validator.js')?>"></script>
+    <!-- PNotify -->
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.buttons.js')?>"></script>
+    <script src="<?php echo base_url('assets/vendors/pnotify/dist/pnotify.nonblock.js')?>"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url('assets/build/js/custom.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/build/js/custom.js')?>"></script>
     
     <!-- Initialize datetimepicker -->
     <script>
