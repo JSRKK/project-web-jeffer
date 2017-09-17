@@ -23,7 +23,7 @@ class LoginController extends CI_Controller {
             redirect('HomeController');            
         }
         else{
-            $this->session->set_flashdata('error','error');
+            $this->session->set_flashdata('error','รหัสผู้ใช้งานไม่ถูกต้อง!');
             redirect('LoginController');                        
         }
     }

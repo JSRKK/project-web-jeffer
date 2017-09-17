@@ -20,6 +20,10 @@ class ListHolidayController extends CI_Controller {
 				'holiday_detail' => $row['HOLIDAY_DETAIL']
 			 );	
 		}
+		if(empty($data) AND empty($year)){
+			$year = null;
+			$data = null;
+		}
 		$dataShow['years'] = $year;
 		$dataShow['holidays'] = $data;
 		$this->load->view('list_holiday_view',$dataShow);

@@ -37,7 +37,7 @@
               <h1>Log in</h1>
               <?php if($this->session->flashdata('error')): ?>    
                       <div class="alert alert-danger">
-                          <p><center> รหัสผู้ใช้งานไม่ถูกต้อง! </center><p>
+                          <p><center> <?php echo $this->session->flashdata('error') ?> </center><p>
                       </div>
               <?php endif; ?>
               <div class="item form-group">

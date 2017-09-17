@@ -23,7 +23,9 @@
     <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
   
     <!-- schedule from database to jquery -->
-    <div id ="event" data-events='<?php echo json_encode($events); ?>' data-hidden="true" ></div>
+    <?php if($events != null): ?>    
+      <div id ="event" data-events='<?php echo json_encode($events); ?>' data-hidden="true" ></div>
+    <?php endif; ?>
     
   </head>
 

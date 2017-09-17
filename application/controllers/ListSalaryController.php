@@ -13,7 +13,10 @@ class ListSalaryController extends CI_Controller {
 			$data[] = array(
 			'salary_date' => date("d-m-Y", strtotime($row['SALARY_DATE']))				
 		 	);	
-        }
+		}
+		if(empty($data)){
+			$data = null;
+		}
         $dataShow['date'] = $data;
 		$this->load->view('list_salary_view', $dataShow);
 	}

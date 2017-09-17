@@ -19,6 +19,9 @@ class ShowScheduleController extends CI_Controller {
 			'start' => $row['SCHEDULE_DATE']." ".$row['SCHEDULE_START'],			
 			'end' => $row['SCHEDULE_DATE']." ".$row['SCHEDULE_END'],			
 		 	);	
+		}	
+		if(empty($data)){
+			$data = null;
 		}
 		$dataShow['events'] = $data;
 		$this->load->view('show_schedule_view', $dataShow);
