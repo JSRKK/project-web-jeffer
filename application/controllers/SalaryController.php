@@ -40,13 +40,12 @@ class SalaryController extends CI_Controller {
 			'ot1' => $row['ot1'],			
 			'ot2' => $row['ot2'],						
 			'diligence' => $row['diligence'],			
-			'bonus' => $row['bonus'],					
 			'insurance' => $row['insurance'],			
 			'holiday_pay' => $row['holiday_pay'],			
 			'late_pay' => $row['late_pay'],	
 			'other_pay' => $row['other_pay'],						
 			'total' => $temp,
-			'income_all' => $row['ot1']	+ $row['ot2'] +	$row['diligence'] + $row['bonus'] + $temp,
+			'income_all' => $row['ot1']	+ $row['ot2'] +	$row['diligence'] + $temp,
 			'pay_all' =>	$row['insurance'] + $row['holiday_pay'] + $row['late_pay'] + $row['other_pay']
 		 	);	
 		}

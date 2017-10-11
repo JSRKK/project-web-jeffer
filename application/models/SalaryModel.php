@@ -18,7 +18,7 @@ class SalaryModel extends CI_Model {
 
         public function get_salary($userId, $date){
                 $newMonth = date('Y-m-d', strtotime($date));
-                $this->db->select('SALARY_DATE as date, IFNULL(SALARY_OT1, 0) as ot1, IFNULL(SALARY_OT2, 0) as ot2, IFNULL(SALARY_DILIGENCE,0) as diligence, IFNULL(SALARY_BONUS,0) as bonus, 
+                $this->db->select('SALARY_DATE as date, IFNULL(SALARY_OT1, 0) as ot1, IFNULL(SALARY_OT2, 0) as ot2, IFNULL(SALARY_DILIGENCE,0) as diligence, 
                                    IFNULL(SALARY_INSURANCE,0) as insurance, IFNULL(SALARY_HOLIDAY_PAY,0) as holiday_pay, IFNULL(SALARY_LATE_PAY,0) as late_pay, IFNULL(SALARY_OTHER_PAY,0) as other_pay, 
                                    SALARY_TOTAL as total');
                 $this->db->from('salary');

@@ -13,6 +13,9 @@ class ShowScheduleController extends CI_Controller {
 			$startDate = date("H:i", strtotime($row['SCHEDULE_START']));
 			$endDate = date("H:i", strtotime($row['SCHEDULE_END']));
 			$hour = (strtotime($row['SCHEDULE_END']) - strtotime($row['SCHEDULE_START']))/3600;
+			if($hour > 8){
+				$hour -= 1;
+			}
 
 			$data[] = array(
 			'title' => $startDate." - ".$endDate." (".$hour." ชั่วโมง)",			

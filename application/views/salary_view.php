@@ -188,10 +188,6 @@
                           <table class="table">
                             <tbody>                        
                               <tr>
-                                <th>ภาษี (7%):</th>
-                                <td>0</td>
-                              </tr>
-                              <tr>
                                 <th>รวมรายได้สุทธิ:</th>
                                 <?php echo "<TD>" .($salary[0]['income_all'] - $salary[0]['pay_all']). "</TD>";?>
                               </tr>
